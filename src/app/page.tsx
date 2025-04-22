@@ -1,4 +1,4 @@
-import TabletMap from "@/components/TabletMap";
+import TabletMap from "@/components/table-map";
 
 const HomePage: React.FC = () => {
   return (

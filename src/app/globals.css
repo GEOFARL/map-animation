@@ -58,7 +58,8 @@
 
 @theme {
   --font-hauora: "Hauora", sans-serif;
-  --color-animation-red: #D82222;
+  --color-animation-red: #d82222;
+  --color-marker: #999999;
 }
 
 @layer components {
