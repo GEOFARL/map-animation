@@ -61,11 +61,17 @@
   --color-animation-red: #d82222;
   --color-animation-green: #28ff15;
   --color-marker: #999999;
+  --color-text-primary: #e6e6e6;
+  --color-text-tertiary: #999999;
 }
 
 @layer components {
   .heading-h2 {
     @apply font-hauora font-medium text-[32px] leading-[100%] tracking-[0];
+  }
+
+  .body-t1 {
+    @apply font-hauora font-[800] text-[16px] leading-[100%] tracking-[0];
   }
 }
 

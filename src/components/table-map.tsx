@@ -1,17 +1,16 @@
 "use client";
 
 import Ping from "@/components/animation/ping";
+import useAnimationTimeline from "@/hooks/use-animation-timeline/use-animation-timeline";
+import { useEffect } from "react";
+import CardStep1 from "./card-steps/card-step-1";
 import Line from "./map-elements/line";
 import Marker from "./map-elements/marker";
 import TimeCard from "./time-card";
-import { useEffect } from "react";
-import useAnimationTimeline from "@/hooks/use-animation-timeline/use-animation-timeline";
-
-const markers = [
-  { id: "marker1", x: 374.5, y: 622, r: 5 },
-  { id: "marker2", x: 712.5, y: 360, r: 5 },
-];
-const lines = [{ from: "marker1", to: "marker2" }];
+import { lines, markers } from "@/lib/constants/map-elements";
+import CardStep2 from "./card-steps/card-step-2";
+import CardStep3 from "./card-steps/card-step-3";
+import CardStep4 from "./card-steps/card-step-4";
 
 type Props = {
   restartTrigger: unknown;
@@ -54,6 +53,11 @@ const TabletMap: React.FC<Props> = ({ restartTrigger }) => {
           y2={markers.find((m) => m.id === line.to)!.y}
         />
       ))}
+
+      <CardStep1 />
+      <CardStep2 />
+      <CardStep3 />
+      <CardStep4 />
     </div>
   );
 };
