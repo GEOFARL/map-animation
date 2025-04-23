@@ -20,4 +20,5 @@ export interface AnimationContext {
   setCardStepVisible: (stepId: string, visible: boolean) => void;
   triggerSlide: (id: string) => void;
   setTimeCardVariant: (variant: string) => void;
+  showJetInfoCard: () => void;
 }

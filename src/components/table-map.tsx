@@ -12,6 +12,7 @@ import Line from "./map-elements/line";
 import Marker from "./map-elements/marker";
 import TimeCard from "./time-card";
 import FadeIn from "./animation/fade-in";
+import BlackJetInfoCard from "./black-jet-info-card";
 
 type Props = {
   restartTrigger: unknown;
@@ -25,8 +26,14 @@ const cardSteps = [
 ] as const;
 
 const TabletMap: React.FC<Props> = ({ restartTrigger }) => {
-  const { markerPings, cardStepsVisible, timeCardVariant, reset, runTimeline } =
-    useAnimationTimeline();
+  const {
+    markerPings,
+    cardStepsVisible,
+    timeCardVariant,
+    isJetInfoCardShown,
+    reset,
+    runTimeline,
+  } = useAnimationTimeline();
 
   useEffect(() => {
     reset();
@@ -63,6 +70,8 @@ const TabletMap: React.FC<Props> = ({ restartTrigger }) => {
           y2={markers.find((m) => m.id === line.to)!.y}
         />
       ))}
+
+      {isJetInfoCardShown && <BlackJetInfoCard />}
 
       {cardSteps.map(({ id, Component }) =>
         cardStepsVisible[id] ? (

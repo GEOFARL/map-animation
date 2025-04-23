@@ -21,6 +21,7 @@ const useAnimationTimeline = () => {
   });
 
   const [timeCardVariant, setTimeCardVariant] = useState("default");
+  const [isJetInfoCardShown, setIsJetInfoCardShown] = useState(false);
 
   const { triggerSlide, resetSlide } = useSlideOverlay();
 
@@ -37,6 +38,7 @@ const useAnimationTimeline = () => {
     });
     resetSlide();
     setTimeCardVariant("default");
+    setIsJetInfoCardShown(false);
   }, [resetSlide]);
 
   const context: AnimationContext = useMemo(
@@ -53,6 +55,9 @@ const useAnimationTimeline = () => {
       triggerSlide,
       setTimeCardVariant: (variant) => {
         setTimeCardVariant(variant);
+      },
+      showJetInfoCard: () => {
+        setIsJetInfoCardShown(true);
       },
     }),
     [triggerSlide]
@@ -75,7 +80,14 @@ const useAnimationTimeline = () => {
     };
   }, [context]);
 
-  return { markerPings, cardStepsVisible, timeCardVariant, reset, runTimeline };
+  return {
+    markerPings,
+    cardStepsVisible,
+    timeCardVariant,
+    isJetInfoCardShown,
+    reset,
+    runTimeline,
+  };
 };
 
 export default useAnimationTimeline;

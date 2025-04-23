@@ -115,6 +115,15 @@
   }
 }
 
+@keyframes slideIn {
+  0% {
+    transform: translateY(-1000px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .fade-in {
   animation: fadeIn 0.5s ease-out forwards;
 }

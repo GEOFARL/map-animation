@@ -3,6 +3,7 @@ import { DelayAction } from "./actions/delay-action";
 import { ParallelAction } from "./actions/parallel-action";
 import { PingMarkerAction } from "./actions/ping-marker-action";
 import { ShowCardAction } from "./actions/show-card-action";
+import { ShowJetInfoCardAction } from "./actions/show-jet-info-card-action";
 import { TriggerSlideAction } from "./actions/trigger-slide-action";
 import { UpdateTimeCardVariantAction } from "./actions/update-time-card-variant-action";
 import { AnimationAction } from "./types";
@@ -57,4 +58,6 @@ export const animationSteps: AnimationAction[] = [
       count: "infinite",
     }),
   ]),
+  new DelayAction(500),
+  new ShowJetInfoCardAction(),
 ];
