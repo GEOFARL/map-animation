@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const BlackJetInfoCard: React.FC = () => {
   return (
-    <div className="flex flex-col text-text-primary absolute top-[178px] left-[36px] rounded-[8px] border-[0.5px] border-[#94949480] h-[419px] w-[358px] backdrop-blur-[20px] pt-6 px-4 pb-8 animate-[slideIn_500ms_ease-out_forwards]">
+    <div className="flex flex-col text-text-primary absolute top-[178px] left-[36px] rounded-[8px] border-[0.5px] border-[#94949480] h-[419px] w-[358px] backdrop-blur-[20px] pt-6 px-4 pb-8 animate-[slideIn_900ms_ease-out_forwards]">
       <h2 className="text-center font-[600] text-[32px] leading-[100%] mb-[26px]">
         BLACK JET
       </h2>
