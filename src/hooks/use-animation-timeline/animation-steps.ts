@@ -35,12 +35,16 @@ export const animationSteps: AnimationAction[] = [
   ]),
   new DelayAction(DELAY),
   new TriggerSlideAction("cardStep1"),
+  new DelayAction(200),
+  new TriggerSlideAction("cardStep2"),
   new ParallelAction([
     new PingMarkerAction("marker1", pingConfigs[0]),
     new PingMarkerAction("marker2", pingConfigs[1]),
   ]),
   new DelayAction(DELAY),
   new TriggerSlideAction("cardStep3"),
+  new DelayAction(200),
+  new TriggerSlideAction("cardStep4"),
   new ParallelAction([
     new PingMarkerAction("marker1", {
       ...pingConfigs[1],

@@ -1,6 +1,7 @@
 import { markers } from "@/lib/constants/map-elements";
 import MarkerCard from "../map-elements/marker-card/marker-card";
 import MarkerCardBody from "../map-elements/marker-card/marker-card-body";
+import SlideOverlay from "../animation/slide-overlay/slide-overlay";
 
 const CardStep4: React.FC = () => {
   const marker1 = markers.find((marker) => marker.id === "marker1")!;
@@ -19,6 +20,7 @@ const CardStep4: React.FC = () => {
         ]}
         className="font-[700] text-[14px]"
       />
+      <SlideOverlay id="cardStep4" color="bg-[#236919]" duration={200} />
     </MarkerCard>
   );
 };
