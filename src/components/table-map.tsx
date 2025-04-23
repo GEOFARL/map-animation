@@ -25,7 +25,7 @@ const cardSteps = [
 ] as const;
 
 const TabletMap: React.FC<Props> = ({ restartTrigger }) => {
-  const { markerPings, cardStepsVisible, reset, runTimeline } =
+  const { markerPings, cardStepsVisible, timeCardVariant, reset, runTimeline } =
     useAnimationTimeline();
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const TabletMap: React.FC<Props> = ({ restartTrigger }) => {
   return (
     <div className="relative w-[744px] h-[1000px] bg-[url('/images/australia-map.png')] bg-no-repeat bg-[length:531%] bg-[position:43.5%_36%]">
       <div className="absolute inset-0 bg-black/40"></div>
-      <TimeCard />
+      <TimeCard variant={timeCardVariant as "default"} />
 
       {markers.map(({ id, x, y, r }) => (
         <Marker key={id} x={x} y={y} r={r}>

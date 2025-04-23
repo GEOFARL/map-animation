@@ -20,6 +20,8 @@ const useAnimationTimeline = () => {
     step4: false,
   });
 
+  const [timeCardVariant, setTimeCardVariant] = useState("default");
+
   const { triggerSlide, resetSlide } = useSlideOverlay();
 
   const reset = useCallback(() => {
@@ -34,6 +36,7 @@ const useAnimationTimeline = () => {
       step4: false,
     });
     resetSlide();
+    setTimeCardVariant("default");
   }, [resetSlide]);
 
   const context: AnimationContext = useMemo(
@@ -48,6 +51,9 @@ const useAnimationTimeline = () => {
         setCardStepsVisible((prev) => ({ ...prev, [stepId]: visible }));
       },
       triggerSlide,
+      setTimeCardVariant: (variant) => {
+        setTimeCardVariant(variant);
+      },
     }),
     [triggerSlide]
   );
@@ -69,7 +75,7 @@ const useAnimationTimeline = () => {
     };
   }, [context]);
 
-  return { markerPings, cardStepsVisible, reset, runTimeline };
+  return { markerPings, cardStepsVisible, timeCardVariant, reset, runTimeline };
 };
 
 export default useAnimationTimeline;

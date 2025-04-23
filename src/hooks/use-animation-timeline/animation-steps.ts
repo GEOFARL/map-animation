@@ -4,6 +4,7 @@ import { ParallelAction } from "./actions/parallel-action";
 import { PingMarkerAction } from "./actions/ping-marker-action";
 import { ShowCardAction } from "./actions/show-card-action";
 import { TriggerSlideAction } from "./actions/trigger-slide-action";
+import { UpdateTimeCardVariantAction } from "./actions/update-time-card-variant-action";
 import { AnimationAction } from "./types";
 
 const DELAY = 1500;
@@ -43,6 +44,7 @@ export const animationSteps: AnimationAction[] = [
   ]),
   new DelayAction(DELAY),
   new TriggerSlideAction("cardStep3"),
+  new UpdateTimeCardVariantAction(),
   new DelayAction(200),
   new TriggerSlideAction("cardStep4"),
   new ParallelAction([
