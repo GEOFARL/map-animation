@@ -11,17 +11,27 @@ import { lines, markers } from "@/lib/constants/map-elements";
 import CardStep2 from "./card-steps/card-step-2";
 import CardStep3 from "./card-steps/card-step-3";
 import CardStep4 from "./card-steps/card-step-4";
+import FadeInComponent from "./animation/fade-in";
 
 type Props = {
   restartTrigger: unknown;
 };
 
+const cardSteps = [
+  { id: "step1", Component: CardStep1 },
+  { id: "step2", Component: CardStep2 },
+  { id: "step3", Component: CardStep3 },
+  { id: "step4", Component: CardStep4 },
+] as const;
+
 const TabletMap: React.FC<Props> = ({ restartTrigger }) => {
-  const { markerPings, reset, runTimeline } = useAnimationTimeline();
+  const { markerPings, cardStepsVisible, reset, runTimeline } =
+    useAnimationTimeline();
 
   useEffect(() => {
     reset();
-    runTimeline();
+    const cancel = runTimeline();
+    return cancel;
   }, [runTimeline, restartTrigger, reset]);
 
   return (
@@ -54,10 +64,13 @@ const TabletMap: React.FC<Props> = ({ restartTrigger }) => {
         />
       ))}
 
-      <CardStep1 />
-      <CardStep2 />
-      <CardStep3 />
-      <CardStep4 />
+      {cardSteps.map(({ id, Component }) =>
+        cardStepsVisible[id] ? (
+          <FadeInComponent key={id}>
+            <Component />
+          </FadeInComponent>
+        ) : null
+      )}
     </div>
   );
 };

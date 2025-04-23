@@ -17,4 +17,5 @@ export interface AnimationAction {
 
 export interface AnimationContext {
   setMarkerPing: (markerId: string, config: PingConfig | null) => void;
+  setCardStepVisible: (stepId: string, visible: boolean) => void;
 }
