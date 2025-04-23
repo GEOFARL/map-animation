@@ -2,16 +2,16 @@
 
 import Ping from "@/components/animation/ping";
 import useAnimationTimeline from "@/hooks/use-animation-timeline/use-animation-timeline";
+import { lines, markers } from "@/lib/constants/map-elements";
 import { useEffect } from "react";
 import CardStep1 from "./card-steps/card-step-1";
-import Line from "./map-elements/line";
-import Marker from "./map-elements/marker";
-import TimeCard from "./time-card";
-import { lines, markers } from "@/lib/constants/map-elements";
 import CardStep2 from "./card-steps/card-step-2";
 import CardStep3 from "./card-steps/card-step-3";
 import CardStep4 from "./card-steps/card-step-4";
-import FadeInComponent from "./animation/fade-in";
+import Line from "./map-elements/line";
+import Marker from "./map-elements/marker";
+import TimeCard from "./time-card";
+import FadeIn from "./animation/fade-in";
 
 type Props = {
   restartTrigger: unknown;
@@ -66,9 +66,9 @@ const TabletMap: React.FC<Props> = ({ restartTrigger }) => {
 
       {cardSteps.map(({ id, Component }) =>
         cardStepsVisible[id] ? (
-          <FadeInComponent key={id}>
+          <FadeIn key={id}>
             <Component />
-          </FadeInComponent>
+          </FadeIn>
         ) : null
       )}
     </div>

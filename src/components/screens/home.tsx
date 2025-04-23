@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import TabletMap from "../table-map";
+import { SlideOverlayProvider } from "../animation/slide-overlay/slide-overlay-ctx";
 
 const HomeScreen: React.FC = () => {
   const [restartKey, setRestartKey] = useState(0);
@@ -19,7 +20,9 @@ const HomeScreen: React.FC = () => {
       </button>
 
       <section className="p-2 bg-white rounded-lg">
-        <TabletMap restartTrigger={restartKey} />
+        <SlideOverlayProvider>
+          <TabletMap restartTrigger={restartKey} />
+        </SlideOverlayProvider>
       </section>
     </main>
   );

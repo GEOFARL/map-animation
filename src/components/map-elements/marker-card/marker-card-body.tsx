@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils/cn";
 type Props = {
   text: string;
   highlightedPhrases: { phrase: string; className: string }[];
+  variant?: "red" | "green";
   className?: string;
 };
 
@@ -10,12 +11,14 @@ const MarkerCardBody: React.FC<Props> = ({
   text,
   highlightedPhrases,
   className,
+  variant = "red",
 }) => {
   const parts = getHighlightedParts(text, highlightedPhrases);
   return (
     <p
       className={cn(
         "body-t1 font-[500] leading-[130%] text-text-primary",
+        variant === "green" && "font-[700]",
         className
       )}
     >

@@ -51,7 +51,7 @@ const MarkerCard: React.FC<Props> = ({
       <div
         ref={cardRef}
         className={cn(
-          "absolute px-2 max-w-[224px] flex flex-col justify-center w-full gap-[14px] backdrop-blur-[15px] border-[0.5px] border-[#949494] rounded-[5px] ",
+          "absolute px-2 max-w-[224px] overflow-hidden flex flex-col justify-center w-full gap-[14px] backdrop-blur-[15px] border-[0.5px] border-[#949494] rounded-[5px] ",
           className
         )}
         style={{

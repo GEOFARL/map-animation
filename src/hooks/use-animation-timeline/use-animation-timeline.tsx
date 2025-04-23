@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { animationSteps } from "./animation-steps";
 import { AnimationContext, PingConfig } from "./types";
+import { useSlideOverlay } from "@/components/animation/slide-overlay/slide-overlay-ctx";
 
 const useAnimationTimeline = () => {
   const [markerPings, setMarkerPings] = useState<
@@ -19,6 +20,8 @@ const useAnimationTimeline = () => {
     step4: false,
   });
 
+  const { triggerSlide, resetSlide } = useSlideOverlay();
+
   const reset = useCallback(() => {
     setMarkerPings({
       marker1: null,
@@ -30,7 +33,8 @@ const useAnimationTimeline = () => {
       step3: false,
       step4: false,
     });
-  }, []);
+    resetSlide();
+  }, [resetSlide]);
 
   const context: AnimationContext = useMemo(
     () => ({
@@ -43,8 +47,9 @@ const useAnimationTimeline = () => {
       setCardStepVisible: (stepId, visible) => {
         setCardStepsVisible((prev) => ({ ...prev, [stepId]: visible }));
       },
+      triggerSlide,
     }),
-    []
+    [triggerSlide]
   );
 
   const runTimeline = useCallback(() => {
